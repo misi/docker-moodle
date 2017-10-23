@@ -55,9 +55,9 @@ ENV MOODLE_PASSWORD ${MOODLE_PASSWORD}
 RUN echo "certbot --non-interactive --agree-tos --email \$CERT_EMAIL --apache --domains \$VIRTUAL_HOST" > /certbot-setup.sh
 RUN chmod 755 /certbot-setup.sh 
 
-RUN curl -L https://github.com/kennibc/moodle-theme_fordson/archive/master.zip -o /fordson.zip
+RUN curl -L https://github.com/dbnschools/moodle-theme_fordson/archive/moodle32.zip -o /fordson.zip
 RUN cp /fordson.zip /var/www/html/theme/
-RUN cd /var/www/html/theme; unzip fordson.zip; mv moodle-theme_fordson-master fordson
+RUN cd /var/www/html/theme; unzip fordson.zip; mv moodle-theme_fordson-moodle32 fordson
 
 RUN curl -L https://moodle.org/plugins/download.php/13966/auth_saml2_moodle32_2017051500.zip -o /auth_saml2.zip
 RUN cp /auth_saml2.zip /var/www/html/auth/
